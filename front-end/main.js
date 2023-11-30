@@ -1,6 +1,9 @@
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
+    const commentInput = document.getElementById('commentInput');
+
     const message = messageInput.value;
+    const comment = commentInput.value;
   
     if (!message) {
       alert('Please enter a message');
@@ -28,7 +31,7 @@ function sendMessage() {
       }
     };
   
-    const data = JSON.stringify({ message });
+    const data = JSON.stringify({ message, comment });
     xhr.send(data);
   }
 

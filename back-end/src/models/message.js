@@ -6,8 +6,13 @@ const commentSchema = new mongoose.Schema({
 });
 
 const messageSchema = new mongoose.Schema({
-    message: String,
-    timestamp: { type: Date, default: Date.now },
-  });
-  
-  module.exports = mongoose.model('Message', messageSchema);
+  messageId: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: mongoose.Types.ObjectId,
+  },
+  messageText: String,
+  messageTimestamp: { type: Date, default: Date.now },
+  comments: [commentSchema],
+});
+
+module.exports = mongoose.model('Message', messageSchema);
