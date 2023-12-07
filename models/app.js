@@ -10,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const routes = require('./config/routes');
+const router = require('./config/router');
 app.set('view engine', 'ejs');
 
-app.use('/', routes);
+app.use('/', router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

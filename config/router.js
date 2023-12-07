@@ -3,6 +3,6 @@ const router = express.Router();
 const controller = require('../controllers/controller'); 
 
 router.get('/', controller.getMessages);
-router.post('/', controller.saveMessage);
+router.post('/', controllerAPI.saveMessage);
 
 module.exports = router;

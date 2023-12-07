@@ -10,19 +10,19 @@ function sendMessage() {
       return;
     }
   
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/api/messages', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    const xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('POST', 'http://localhost:3000/api/messages', true);
+    xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
   
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
+    xmlHttpRequest.onreadystatechange = function () {
+      if (xmlHttpRequest.readyState === 4) {
+        if (xmlHttpRequest.status === 200) {
           alert('Message sent successfully');
           messageInput.value = '';
           loadMessages();
         } else {
           try {
-            const data = JSON.parse(xhr.responseText);
+            const data = JSON.parse(xmlHttpRequest.responseText);
             alert(`Error: ${data.error}`);
           } catch (error) {
             alert('Something went wrong');
@@ -32,7 +32,7 @@ function sendMessage() {
     };
   
     const data = JSON.stringify({ message, comment });
-    xhr.send(data);
+    xmlHttpRequest.send(data);
   }
 
   async function loadMessages() {
